@@ -12,7 +12,10 @@
     <form action="../controller/ClienteController.php" method="POST">
 
         <label for="email">E-mail:</label>
-        <input type="email" name="email" required><br>
+        <input type="email" name="email" value="<?php session_start();
+        if (isset($_SESSION['email'])) {
+            echo $_SESSION['email'];
+        }?>" required><br>
 
         <label for="senha">Senha:</label>
         <input type="password" name="senha" required><br>

@@ -18,7 +18,11 @@ if ($_POST) {
         session_start();
         $usuario = $result->fetch_assoc();
         $_SESSION['ID'] = $usuario['ID'];
-        $_SESSION['FraseDoDia'] = 'Logado!!!';
+        $_SESSION['email'] = $usuario['Email'];
+        $_SESSION['nome'] = $usuario['Nome'];
+        $_SESSION['telefone'] = $usuario['Telefone'];
+        $_SESSION['cpf'] = $usuario['CPF'];
+        $_SESSION['endereco'] = $usuario['Endereco'];
         header('location:../view/Paginas/Home.php');
     } else {
         header('location:../view/cadastro.php?cod=401');

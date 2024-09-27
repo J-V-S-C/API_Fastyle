@@ -14,13 +14,13 @@ function BuscarDB($db)
     $query = 'SELECT * FROM Cliente';
     $result = $db->query($query);
     while ($row = $result->fetch_assoc()) {
-        echo '<br><br>
-                ' . $row['ID'] . '
-                <br>' . $row['Nome'] . '
-                <br>' . $row['Telefone'] . '
-                <br>' . $row['CPF'] . '
-                <br>' . $row['Email'] . '
-                <br>' . $row['Endereco'] . '
+        echo '<br>
+                <br>Nome: ' . $row['Nome'] . '
+                <br>Telefone: ' . $row['Telefone'] . '
+                <br>CPF ' . $row['CPF'] . '
+                <br>E-mail ' . $row['Email'] . '
+                <br>Senha: ' . $row['Senha'] . '
+                <br>Endereço: ' . $row['Endereco'] . '
               ';
     }
 }
