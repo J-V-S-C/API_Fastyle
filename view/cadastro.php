@@ -28,5 +28,9 @@
         <label for="endereco">Endereço:</label>
         <input type="text" name="endereco" required><br>
         <input type="submit" value="Adicionar Cliente"></input>
+        <?php
+            require_once '../datasabe.php';
+        BuscarDB($db);
+        ?>
     </form>
 </html>

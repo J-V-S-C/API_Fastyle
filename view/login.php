@@ -20,6 +20,10 @@
      
 
         <button type="submit">Logar</button>
+        <?php
+            require_once '../database.php';
+        BuscarDB($db);
+        ?>
     </form>
 </body>
 </html>
