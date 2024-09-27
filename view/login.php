@@ -7,12 +7,12 @@
     <title>Adicionar Cliente</title>
 </head>
 <body>
-    <h1>Adicionar novo cliente</h1>
+    <h1>Fazer Login</h1>
 
     <form action="../controller/ClienteController.php" method="POST">
 
         <label for="email">E-mail:</label>
-        <input type="text" name="email" required><br>
+        <input type="email" name="email" required><br>
 
         <label for="senha">Senha:</label>
         <input type="password" name="senha" required><br>
@@ -21,7 +21,7 @@
 
         <button type="submit">Logar</button>
         <?php
-            require_once '../database.php';
+        require_once __DIR__ . '/../database.php';
         BuscarDB($db);
         ?>
     </form>
