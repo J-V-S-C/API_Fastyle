@@ -36,7 +36,7 @@ class cliente
 
     public function inserir($dados)
     {
-        $stmt = $this->db->prepare('INSERT INTO Cliente(Nome, Telefone, CPF, Email, Senha, Endereco) VALUES (?, ?, ?, ?, ?, ?');
+        $stmt = $this->db->prepare('INSERT INTO Cliente(Nome, Telefone, CPF, Email, Senha, Endereco) VALUES (?, ?, ?, ?, ?, ?)');
         $stmt->bind_param('ssssss', $dados['nome'], $dados['telefone'], $dados['cpf'], $dados['email'], $dados['senha'], $dados['endereco']);
 
         //permite saber se a inserção foi bem sucedida ou não
@@ -48,7 +48,7 @@ class cliente
         $stmt = $this->db->prepare('UPDATE Client SET Nome = ?, Telefone = ?, CPF = ?, Email = ?, Senha = ?, Endereco = ? WHERE ID = ?');
         $stmt->bind_param('ssssssi', $dados['nome'], $dados['telefone'], $dados['cpf'], $dados['email'], $dados['senha'], $dados['endereco'], $id);
 
-        return $stmt->execute;
+        return $stmt->execute();
     }
 
     public function deletar($id)
