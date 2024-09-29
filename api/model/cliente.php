@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 class cliente
 {
     private $db;
@@ -20,7 +24,7 @@ class cliente
     public function buscarPorId($id)
     {
         //stmt é statement, convenção do método prepare, que realiza uma busca segura no DB, já que estamos com dados do user no parametro, o ? é um placeholder q será substituído pelo parâmetro
-        $stmt = $this->db->prepare('SELECT * FROM Cliente WHERE ID = ?');
+        $stmt = $this->db->prepare('SELECT * FROM Cliente WHERE ID = ?') ;
 
         //insere os  dados no placeholder, o i é abreviação de int
         $stmt->bind_param('i', $id);
@@ -45,7 +49,7 @@ class cliente
 
     public function atualizar($dados, $id)
     {
-        $stmt = $this->db->prepare('UPDATE Client SET Nome = ?, Telefone = ?, CPF = ?, Email = ?, Senha = ?, Endereco = ? WHERE ID = ?');
+        $stmt = $this->db->prepare('UPDATE Cliente SET Nome = ?, Telefone = ?, CPF = ?, Email = ?, Senha = ?, Endereco = ? WHERE ID = ?');
         $stmt->bind_param('ssssssi', $dados['nome'], $dados['telefone'], $dados['cpf'], $dados['email'], $dados['senha'], $dados['endereco'], $id);
 
         return $stmt->execute();
@@ -56,7 +60,7 @@ class cliente
         $stmt = $this->db->prepare('DELETE FROM Cliente WHERE ID = ?');
         $stmt->bind_param('i', $id);
 
-        return $stmt->execute;
+        return $stmt->execute();
     }
 
 
